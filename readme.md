@@ -1,4 +1,4 @@
-1. Create a DB in pg admin
+1. Create a DB in pg admin (bike_project)
 2. Run this in DBeaver: 
 
 -- Create the nodes table
