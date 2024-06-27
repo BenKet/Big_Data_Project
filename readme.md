@@ -31,7 +31,7 @@ CREATE TABLE edges (
     node_id_start INTEGER REFERENCES nodes(id),
     node_id_end INTEGER REFERENCES nodes(id),
     weight FLOAT NOT NULL,
-    PRIMARY KEY (node_id_small, node_id_big)
+    PRIMARY KEY (node_id_start, node_id_end)
 );
 
 
