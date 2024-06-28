@@ -24,7 +24,8 @@ db_params = {
 
 # Authentication dependency
 def authenticate(x_api_key: str = Header(None)):
-    if x_api_key != "123456":
+    api_key = os.getenv('API_KEY')
+    if x_api_key != api_key:
         raise HTTPException(status_code=403, detail="Invalid API token")
 
 class Route(BaseModel):
