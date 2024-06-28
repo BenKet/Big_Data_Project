@@ -1,0 +1,12 @@
+.env
+big_data_venv/
+.idea
+.ipynb_checkpoints
+.vscode
+.DS_Store
+.git
+.gitignore
+route_map.html
+start_project.ipynb
+readme.md
+env/
