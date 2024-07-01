@@ -22,7 +22,8 @@ db_params = {
     'dbname': os.getenv('DATABASE_NAME'),
     'user': os.getenv('DATABASE_USER'),
     'host': os.getenv('DATABASE_HOST'),
-    'password': os.getenv('DATABASE_PASSWORD')
+    'password': os.getenv('DATABASE_PASSWORD'),
+    'port': os.getenv('DATABASE_PORT')
 }
 
 # Area for random latitude and longitude in Berlin Kreuzberg/Friedrichshain
