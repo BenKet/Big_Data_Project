@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 import logging
 
-# Load environment variables
+
 load_dotenv()
 
 # Configure logging
@@ -37,6 +37,7 @@ class Route(BaseModel):
     rating: int
     nodes: list
 
+#This code sets up a FastAPI POST endpoint to add a new route to the database. It takes care of authentication, connects to the database, inserts the route info, and updates the related nodes and edges.
 @app.post("/insert_route")
 def insert_route(route: Route, token: str = Depends(authenticate)):
     try:
