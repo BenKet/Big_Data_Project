@@ -1,3 +1,4 @@
 env/
 big_data_venv/
 .env
+venv/

@@ -1,38 +1,17 @@
-1. Create a DB in pg admin (bike_project)
-2. Run this in DBeaver: 
+This project includes Docker configurations for setting up a web application with FastAPI and Streamlit, along with a PostgreSQL database.
 
--- Create the nodes table
-CREATE TABLE nodes (
-    id SERIAL PRIMARY KEY,
-    latitude DECIMAL(10, 7) NOT NULL,
-    longitude DECIMAL(10, 7) NOT NULL
-);
+Project Structure
+.dockerignore: Specifies files and directories that should be ignored by Docker.
+.gitignore: Specifies files and directories that should be ignored by Git.
+captain-definition: Configuration for CapRover deployment.
+docker-compose.yml: Docker Compose file to set up and manage multi-container applications.
+Dockerfile.api: Dockerfile for building the FastAPI application.
+Dockerfile.streamlit: Dockerfile for building the Streamlit application.
+api.py: Python script for the FastAPI application. This code specifies how the generated route is stored in the database
+streamlit_app.py: Python script for the Streamlit application. Generates a map visualization that retrieves data from our database and applies color to edges based on their rating. Additionally, it provides an interface for route generation.
+requirements.txt:Requeride libraries that have to be installed in virtual environment
 
--- Create the routes table
-CREATE TABLE routes (
-    id SERIAL PRIMARY KEY,
-    start_latitude DECIMAL(10, 7) NOT NULL,
-    start_longitude DECIMAL(10, 7) NOT NULL,
-    end_latitude DECIMAL(10, 7) NOT NULL,
-    end_longitude DECIMAL(10, 7) NOT NULL,
-    rating INTEGER CHECK (rating BETWEEN 1 AND 5) NOT NULL
-);
-
--- Create the route_way table
-CREATE TABLE route_way (
-    route_id INTEGER REFERENCES routes(id),
-    node_id INTEGER REFERENCES nodes(id),
-    sequence INTEGER NOT NULL,
-    PRIMARY KEY (route_id, node_id)
-);
-
--- Create the edges table
-CREATE TABLE edges (
-    node_id_start INTEGER REFERENCES nodes(id),
-    node_id_end INTEGER REFERENCES nodes(id),
-    weight FLOAT NOT NULL,
-    PRIMARY KEY (node_id_start, node_id_end)
-);
+route_map.html and start_project.ipynb: These files were created at the beginning of the project to explore methods for generating and storing routes, and to visualize how they would look. They are not currently in use.
 
 
 
